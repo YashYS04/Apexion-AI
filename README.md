@@ -93,9 +93,22 @@ To ensure strategy recommendations are compliant with complex **FIA Sporting Reg
 
 ---
 
-## 5. Development & Execution Guide
+## 5. IBM WatsonX & Granite Integration
 
-### 5.1. Directory Structure
+Apexion AI is powered by the **IBM WatsonX** platform, leveraging the **IBM Granite-13B-Instruct (v2)** model to build trust with race engineers:
+* **Structured Reasoning Output:** The Granite model is configured with strict schema enforcement to generate a structured JSON object containing:
+  - `thoughts`: An array representing the AI's internal step-by-step reasoning trace.
+  - `action`: A brief, high-impact tactical directive (e.g. *BOX BOX BOX* or *STAY OUT*).
+  - `answer`: A detailed verbal response for the audio synthesizer.
+  - `citations`: Referenced sporting rules articles from the regulations context.
+* **langchain-ibm Orchestration:** Built utilizing the official `langchain-ibm` Python wrapper, enabling seamless API calls, token management, and structured response parsing.
+* **Hybrid Execution Mode:** If WatsonX API keys are not supplied, the copilot automatically falls back to an offline rule-based deterministic F1 reasoning engine, ensuring the app remains fully functional under any connectivity state.
+
+---
+
+## 6. Development & Execution Guide
+
+### 6.1. Directory Structure
 ```
 ├── frontend/             # Next.js 15 Web Deck
 ├── backend/              # FastAPI server (Uvicorn REST & WebSockets)
@@ -105,7 +118,7 @@ To ensure strategy recommendations are compliant with complex **FIA Sporting Reg
 └── Dockerfile            # Container configs for Cloud Run
 ```
 
-### 5.2. Running Backend Locally
+### 6.2. Running Backend Locally
 1. Navigate to the backend folder:
    ```bash
    cd backend
@@ -126,7 +139,7 @@ To ensure strategy recommendations are compliant with complex **FIA Sporting Reg
    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
    ```
 
-### 5.3. Running Frontend Locally
+### 6.3. Running Frontend Locally
 1. Navigate to the frontend folder:
    ```bash
    cd ../frontend
@@ -143,7 +156,7 @@ To ensure strategy recommendations are compliant with complex **FIA Sporting Reg
 
 ---
 
-## 6. Production Deployment & Deployed Endpoints
+## 7. Production Deployment & Deployed Endpoints
 
 Apexion AI is containerized and deployed as scalable microservices on **Google Cloud Run**:
 * **Frontend Web Deck:** [https://apexion-frontend-78199468351.us-central1.run.app/](https://apexion-frontend-78199468351.us-central1.run.app/)
@@ -153,7 +166,7 @@ Apexion AI is containerized and deployed as scalable microservices on **Google C
 
 ---
 
-## 7. Judge Demo Walkthrough Guide
+## 8. Demo Walkthrough Guide
 
 To evaluate the full features of Apexion AI in 3 minutes, follow this sequence:
 
@@ -179,7 +192,7 @@ To evaluate the full features of Apexion AI in 3 minutes, follow this sequence:
 
 ---
 
-## 8. Strategic Systems Roadmap
+## 9. Strategic Systems Roadmap
 
 * **Live API Ingest (FastF1):** Direct WebSockets integration with official FIA timing streams for live-race telemetry capture.
 * **Predictive Anomaly Detection:** Machine learning regression models trained on tyre vibration sensors to predict punctures 3 laps in advance.
@@ -187,6 +200,6 @@ To evaluate the full features of Apexion AI in 3 minutes, follow this sequence:
 
 ---
 
-## 9. License
+## 10. License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
