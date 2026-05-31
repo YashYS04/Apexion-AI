@@ -1,0 +1,128 @@
+{
+  "name": "F1 Race Engineer AI Copilot",
+  "description": "Orchestrates live telemetry, FIA Sporting Regulations RAG chunks, and IBM Granite LLM to generate explainable pit strategy decisions.",
+  "nodes": [
+    {
+      "id": "telemetry-input-1",
+      "type": "customNode",
+      "data": {
+        "label": "Telemetry Ingest Context",
+        "inputs": {
+          "lap_number": "int",
+          "tyre_compound": "str",
+          "tyre_wear_array": "list",
+          "tyre_temp_array": "list",
+          "fuel_remaining": "float",
+          "drs_enabled": "bool",
+          "track_temp": "float",
+          "weather": "str"
+        },
+        "outputs": {
+          "formatted_telemetry_string": "str"
+        }
+      }
+    },
+    {
+      "id": "rag-search-2",
+      "type": "customNode",
+      "data": {
+        "label": "FIA Sporting Regulations RAG",
+        "inputs": {
+          "search_query": "str",
+          "regulation_text_db": "datasets/f1_regulations_sample.txt",
+          "top_k": 2
+        },
+        "outputs": {
+          "retrieved_context_chunks": "list",
+          "citations": "list"
+        }
+      }
+    },
+    {
+      "id": "prompt-builder-3",
+      "type": "customNode",
+      "data": {
+        "label": "Prompt Template Builder",
+        "inputs": {
+          "system_instruction": "You are a professional F1 Pit-Wall Race Engineer. Guide the driver/crew based on telemetry and regulations. Be concise.",
+          "telemetry_context": "link:telemetry-input-1.formatted_telemetry_string",
+          "rag_grounding": "link:rag-search-2.retrieved_context_chunks",
+          "driver_question": "str",
+          "mode": "engineering | fan"
+        },
+        "outputs": {
+          "compiled_prompt": "str"
+        }
+      }
+    },
+    {
+      "id": "ibm-granite-llm-4",
+      "type": "customNode",
+      "data": {
+        "label": "IBM Granite LLM",
+        "inputs": {
+          "model_name": "ibm/granite-13b-instruct-v2",
+          "prompt": "link:prompt-builder-3.compiled_prompt",
+          "ibm_api_key": "env:IBM_GRANITE_API_KEY",
+          "temperature": 0.2,
+          "max_new_tokens": 512
+        },
+        "outputs": {
+          "response_text": "str"
+        }
+      }
+    },
+    {
+      "id": "response-parser-5",
+      "type": "customNode",
+      "data": {
+        "label": "Structured Response Parser",
+        "inputs": {
+          "raw_response": "link:ibm-granite-llm-4.response_text",
+          "citations_list": "link:rag-search-2.citations"
+        },
+        "outputs": {
+          "json_output": {
+            "thoughts": "list",
+            "answer": "str",
+            "citations": "list",
+            "assumptions": "list",
+            "action": "str"
+          }
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "telemetry-input-1",
+      "target": "prompt-builder-3",
+      "sourceOutput": "formatted_telemetry_string",
+      "targetInput": "telemetry_context"
+    },
+    {
+      "source": "rag-search-2",
+      "target": "prompt-builder-3",
+      "sourceOutput": "retrieved_context_chunks",
+      "targetInput": "rag_grounding"
+    },
+    {
+      "source": "prompt-builder-3",
+      "target": "ibm-granite-llm-4",
+      "sourceOutput": "compiled_prompt",
+      "targetInput": "prompt"
+    },
+    {
+      "source": "ibm-granite-llm-4",
+      "target": "response-parser-5",
+      "sourceOutput": "response_text",
+      "targetInput": "raw_response"
+    },
+    {
+      "source": "rag-search-2",
+      "target": "response-parser-5",
+      "sourceOutput": "citations",
+      "targetInput": "citations_list"
+    }
+  ]
+}

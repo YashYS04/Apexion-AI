@@ -1,0 +1,51 @@
+{
+  "session": {
+    "race_name": "Monaco Grand Prix 2022",
+    "track": "Circuit de Monaco",
+    "total_laps": 64,
+    "weather": "Rain drying to Sunny",
+    "ambient_temp": 19.5,
+    "track_temp": 24.0,
+    "winning_strategy": "Wet -> Intermediate -> Medium (Slick)",
+    "historical_context": "The race started under heavy rain. Leclerc led on Wet tyres. Red Bull pitted Perez for Intermediates on Lap 16. Ferrari delayed, then double-stacked Leclerc and Sainz on Lap 22 for Hard slicks, but Sainz went straight from Wet to Hard, whereas Leclerc did Wet -> Inter -> Hard, losing the lead to Perez."
+  },
+  "lap_history": [
+    {"lap": 1, "driver": "LEC", "position": 1, "lap_time": 95.42, "s1": 24.1, "s2": 40.2, "s3": 31.12, "tyre": "Wet", "tyre_age": 1, "tyre_wear": 2.0, "fuel_left": 108.0, "drs_enabled": false},
+    {"lap": 5, "driver": "LEC", "position": 1, "lap_time": 90.15, "s1": 23.2, "s2": 37.8, "s3": 29.15, "tyre": "Wet", "tyre_age": 5, "tyre_wear": 8.5, "fuel_left": 101.5, "drs_enabled": false},
+    {"lap": 10, "driver": "LEC", "position": 1, "lap_time": 88.50, "s1": 22.8, "s2": 37.1, "s3": 28.60, "tyre": "Wet", "tyre_age": 10, "tyre_wear": 15.0, "fuel_left": 93.2, "drs_enabled": false},
+    {"lap": 15, "driver": "LEC", "position": 1, "lap_time": 87.20, "s1": 22.5, "s2": 36.5, "s3": 28.20, "tyre": "Wet", "tyre_age": 15, "tyre_wear": 23.2, "fuel_left": 85.0, "drs_enabled": false},
+    {"lap": 16, "driver": "PER", "position": 3, "lap_time": 85.80, "s1": 22.1, "s2": 35.9, "s3": 27.80, "tyre": "Intermediate", "tyre_age": 1, "tyre_wear": 1.0, "fuel_left": 83.5, "drs_enabled": false},
+    {"lap": 17, "driver": "LEC", "position": 1, "lap_time": 86.95, "s1": 22.4, "s2": 36.3, "s3": 28.25, "tyre": "Wet", "tyre_age": 17, "tyre_wear": 27.5, "fuel_left": 81.8, "drs_enabled": false},
+    {"lap": 18, "driver": "PER", "position": 2, "lap_time": 76.50, "s1": 19.8, "s2": 31.2, "s3": 25.50, "tyre": "Intermediate", "tyre_age": 3, "tyre_wear": 4.5, "fuel_left": 80.2, "drs_enabled": false},
+    {"lap": 19, "driver": "LEC", "position": 1, "lap_time": 86.10, "s1": 22.2, "s2": 35.8, "s3": 28.10, "tyre": "Wet", "tyre_age": 19, "tyre_wear": 31.8, "fuel_left": 78.5, "drs_enabled": false},
+    {"lap": 20, "driver": "LEC", "position": 3, "lap_time": 105.80, "s1": 22.1, "s2": 52.5, "s3": 31.20, "tyre": "Intermediate", "tyre_age": 1, "tyre_wear": 1.0, "fuel_left": 76.8, "drs_enabled": false, "event": "Pitstop for Intermediates"},
+    {"lap": 21, "driver": "LEC", "position": 3, "lap_time": 75.20, "s1": 19.4, "s2": 30.8, "s3": 25.00, "tyre": "Intermediate", "tyre_age": 2, "tyre_wear": 3.0, "fuel_left": 75.1, "drs_enabled": false},
+    {"lap": 22, "driver": "LEC", "position": 4, "lap_time": 110.15, "s1": 19.6, "s2": 55.4, "s3": 35.15, "tyre": "Hard", "tyre_age": 1, "tyre_wear": 0.5, "fuel_left": 73.5, "drs_enabled": false, "event": "Confused Double-Stack Pitstop for Hard slicks"},
+    {"lap": 23, "driver": "LEC", "position": 4, "lap_time": 74.80, "s1": 19.2, "s2": 30.5, "s3": 25.10, "tyre": "Hard", "tyre_age": 2, "tyre_wear": 1.5, "fuel_left": 71.8, "drs_enabled": false},
+    {"lap": 24, "driver": "LEC", "position": 4, "lap_time": 73.10, "s1": 18.9, "s2": 29.8, "s3": 24.40, "tyre": "Hard", "tyre_age": 3, "tyre_wear": 2.5, "fuel_left": 70.2, "drs_enabled": false},
+    {"lap": 25, "driver": "LEC", "position": 4, "lap_time": 72.30, "s1": 18.7, "s2": 29.5, "s3": 24.10, "tyre": "Hard", "tyre_age": 4, "tyre_wear": 3.5, "fuel_left": 68.6, "drs_enabled": true}
+  ],
+  "telemetry_replay": [
+    {"time": 0, "lap": 22, "speed": 62, "throttle": 0, "brake": 100, "rpm": 4500, "gear": 1, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [68, 65, 70, 71], "fuel": 74.2, "engine_temp": 102, "brake_temp": 450, "distance": 3280, "event": "Entering Pit Lane"},
+    {"time": 1, "lap": 22, "speed": 60, "throttle": 15, "brake": 0, "rpm": 5200, "gear": 1, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [66, 63, 68, 69], "fuel": 74.1, "engine_temp": 103, "brake_temp": 420, "distance": 3296, "event": "Pit Speed Limiter Active"},
+    {"time": 2, "lap": 22, "speed": 60, "throttle": 15, "brake": 0, "rpm": 5200, "gear": 1, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [64, 62, 66, 67], "fuel": 74.1, "engine_temp": 103, "brake_temp": 390, "distance": 3313},
+    {"time": 3, "lap": 22, "speed": 40, "throttle": 0, "brake": 60, "rpm": 3800, "gear": 1, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [62, 60, 64, 65], "fuel": 74.0, "engine_temp": 104, "brake_temp": 380, "distance": 3324, "event": "Approaching Ferrari Box"},
+    {"time": 4, "lap": 22, "speed": 0, "throttle": 0, "brake": 100, "rpm": 1200, "gear": 0, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [58, 55, 60, 61], "fuel": 74.0, "engine_temp": 106, "brake_temp": 360, "distance": 3326, "event": "Car Stopped - Double Stack Blocked by Sainz!"},
+    {"time": 5, "lap": 22, "speed": 0, "throttle": 0, "brake": 100, "rpm": 1200, "gear": 0, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [55, 52, 57, 58], "fuel": 74.0, "engine_temp": 108, "brake_temp": 340, "distance": 3326},
+    {"time": 6, "lap": 22, "speed": 0, "throttle": 0, "brake": 100, "rpm": 1200, "gear": 0, "drs": false, "tyre_wear": [3.1, 3.2, 4.0, 4.2], "tyre_temp": [52, 49, 54, 55], "fuel": 74.0, "engine_temp": 110, "brake_temp": 320, "distance": 3326, "event": "Pit Crew Swapping Tyres (Inter -> Hard)"},
+    {"time": 7, "lap": 22, "speed": 0, "throttle": 0, "brake": 100, "rpm": 1200, "gear": 0, "drs": false, "tyre_wear": [0.0, 0.0, 0.0, 0.0], "tyre_temp": [80, 80, 80, 80], "fuel": 74.0, "engine_temp": 111, "brake_temp": 300, "distance": 3326, "event": "Hard Tyres Fitted - Blankets Removed"},
+    {"time": 8, "lap": 22, "speed": 0, "throttle": 0, "brake": 100, "rpm": 1200, "gear": 0, "drs": false, "tyre_wear": [0.0, 0.0, 0.0, 0.0], "tyre_temp": [78, 78, 78, 78], "fuel": 74.0, "engine_temp": 111, "brake_temp": 290, "distance": 3326, "event": "Car Released"},
+    {"time": 9, "lap": 22, "speed": 35, "throttle": 40, "brake": 0, "rpm": 6200, "gear": 1, "drs": false, "tyre_wear": [0.1, 0.1, 0.1, 0.1], "tyre_temp": [75, 75, 76, 76], "fuel": 73.9, "engine_temp": 109, "brake_temp": 310, "distance": 3336},
+    {"time": 10, "lap": 22, "speed": 60, "throttle": 20, "brake": 0, "rpm": 5200, "gear": 1, "drs": false, "tyre_wear": [0.2, 0.2, 0.2, 0.2], "tyre_temp": [73, 73, 74, 74], "fuel": 73.9, "engine_temp": 108, "brake_temp": 315, "distance": 3352},
+    {"time": 11, "lap": 22, "speed": 60, "throttle": 20, "brake": 0, "rpm": 5200, "gear": 1, "drs": false, "tyre_wear": [0.2, 0.2, 0.2, 0.2], "tyre_temp": [71, 71, 72, 72], "fuel": 73.8, "engine_temp": 107, "brake_temp": 310, "distance": 3369, "event": "Pit Exit Line Crossed"},
+    {"time": 12, "lap": 22, "speed": 110, "throttle": 100, "brake": 0, "rpm": 10500, "gear": 2, "drs": false, "tyre_wear": [0.3, 0.3, 0.3, 0.3], "tyre_temp": [70, 69, 72, 71], "fuel": 73.8, "engine_temp": 105, "brake_temp": 330, "distance": 3399, "event": "Pit Limiter Off - Rejoining Track"},
+    {"time": 13, "lap": 22, "speed": 160, "throttle": 100, "brake": 0, "rpm": 11800, "gear": 3, "drs": false, "tyre_wear": [0.4, 0.4, 0.4, 0.4], "tyre_temp": [70, 68, 73, 72], "fuel": 73.7, "engine_temp": 103, "brake_temp": 350, "distance": 3444},
+    {"time": 14, "lap": 22, "speed": 210, "throttle": 100, "brake": 0, "rpm": 12400, "gear": 4, "drs": false, "tyre_wear": [0.4, 0.4, 0.4, 0.5], "tyre_temp": [71, 68, 75, 73], "fuel": 73.6, "engine_temp": 101, "brake_temp": 380, "distance": 3502},
+    {"time": 15, "lap": 22, "speed": 235, "throttle": 100, "brake": 0, "rpm": 12100, "gear": 5, "drs": false, "tyre_wear": [0.5, 0.4, 0.5, 0.5], "tyre_temp": [72, 69, 77, 75], "fuel": 73.6, "engine_temp": 99, "brake_temp": 390, "distance": 3567},
+    {"time": 16, "lap": 22, "speed": 120, "throttle": 0, "brake": 80, "rpm": 8500, "gear": 2, "drs": false, "tyre_wear": [0.5, 0.5, 0.6, 0.6], "tyre_temp": [74, 71, 79, 77], "fuel": 73.5, "engine_temp": 100, "brake_temp": 520, "distance": 3600, "event": "Sainte Devote (Turn 1)"},
+    {"time": 17, "lap": 22, "speed": 105, "throttle": 30, "brake": 0, "rpm": 7800, "gear": 2, "drs": false, "tyre_wear": [0.6, 0.5, 0.6, 0.6], "tyre_temp": [75, 72, 79, 78], "fuel": 73.5, "engine_temp": 100, "brake_temp": 510, "distance": 3629},
+    {"time": 18, "lap": 22, "speed": 150, "throttle": 90, "brake": 0, "rpm": 11200, "gear": 3, "drs": false, "tyre_wear": [0.6, 0.6, 0.7, 0.7], "tyre_temp": [77, 73, 81, 80], "fuel": 73.4, "engine_temp": 99, "brake_temp": 490, "distance": 3671},
+    {"time": 19, "lap": 22, "speed": 210, "throttle": 100, "brake": 0, "rpm": 12500, "gear": 4, "drs": false, "tyre_wear": [0.7, 0.6, 0.8, 0.7], "tyre_temp": [79, 75, 83, 82], "fuel": 73.3, "engine_temp": 98, "brake_temp": 460, "distance": 3729, "event": "Climbing Beau Rivage"},
+    {"time": 20, "lap": 22, "speed": 250, "throttle": 100, "brake": 0, "rpm": 12800, "gear": 5, "drs": false, "tyre_wear": [0.8, 0.7, 0.9, 0.8], "tyre_temp": [81, 76, 85, 83], "fuel": 73.2, "engine_temp": 97, "brake_temp": 430, "distance": 3798}
+  ]
+}

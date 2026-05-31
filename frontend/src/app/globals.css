@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Default: Dark mode (Midnight Emerald Theme) variables */
+  --bg-color: #0F1115;
+  --foreground-color: #C9D1D9;
+  --text-bright: #ffffff;
+  --card-bg: rgba(21, 25, 32, 0.85);
+  --card-border: rgba(201, 209, 217, 0.15);
+  --text-muted: #C9D1D9;
+  --panel-shadow: 0 4px 30px rgba(0, 0, 0, 0.65);
+}
+
+.light {
+  /* Day Mode (Light Theme) variables */
+  --bg-color: #f3f4f6;
+  --foreground-color: #374151;
+  --text-bright: #111827;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: #d1d5db;
+  --text-muted: #4b5563;
+  --panel-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--foreground-color);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* In light mode, override generic text-white elements inside panels to be near black,
+   except inside buttons, badges, or dark-accented components */
+body.light .text-white:not(
+  button, button *, 
+  a, a *, 
+  .bg-f1-red, .bg-f1-red *, 
+  .bg-f1-blue, .bg-f1-blue *, 
+  .bg-f1-green, .bg-f1-green *, 
+  .bg-f1-yellow, .bg-f1-yellow *, 
+  .bg-black, .bg-black *, 
+  .bg-[#121218], .bg-[#121218] *,
+  .f1-font-telemetry
+) {
+  color: #111827 !important;
+}
+
+/* Make sure light mode text within certain inputs/selects is readable */
+body.light select, body.light input {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+}
+
+/* Correct the dot-grid pattern color in light mode */
+body.light.bg-dot-grid {
+  background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+}
+
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F1115;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 209, 217, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00C389;
+}
+
+/* Pit Wall Dashboard Glows */
+.f1-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.f1-panel:hover {
+  border-color: rgba(0, 195, 137, 0.4);
+  box-shadow: 0 0 25px rgba(0, 195, 137, 0.12), var(--panel-shadow);
+  transform: translateY(-2px);
+}
+
+.neon-border-red {
+  border-color: #00C389;
+  box-shadow: 0 0 10px rgba(0, 195, 137, 0.25);
+}
+
+.neon-border-green {
+  border-color: #00C389;
+  box-shadow: 0 0 10px rgba(0, 195, 137, 0.25);
+}
+
+.neon-text-red {
+  text-shadow: 0 0 8px rgba(0, 195, 137, 0.6);
+}
+
+.neon-text-green {
+  text-shadow: 0 0 8px rgba(0, 195, 137, 0.6);
+}
+
+.f1-font-telemetry {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Carbon fiber grid pattern */
+.bg-carbon {
+  background-color: #08080a;
+  background-image: 
+    linear-gradient(30deg, #15151b 12%, transparent 12.5%, transparent 87%, #15151b 87.5%, #15151b),
+    linear-gradient(150deg, #15151b 12%, transparent 12.5%, transparent 87%, #15151b 87.5%, #15151b),
+    linear-gradient(30deg, #15151b 12%, transparent 12.5%, transparent 87%, #15151b 87.5%, #15151b),
+    linear-gradient(150deg, #15151b 12%, transparent 12.5%, transparent 87%, #15151b 87.5%, #15151b),
+    linear-gradient(60deg, #22222d 25%, transparent 25.5%, transparent 75%, #22222d 75.5%, #22222d),
+    linear-gradient(60deg, #22222d 25%, transparent 25.5%, transparent 75%, #22222d 75.5%, #22222d);
+  background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+}
+
+.bg-dot-grid {
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle, #1a1a24 1px, transparent 1px);
+}
+
+/* scanlines for pit wall screens */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 2;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Premium Animations and Mesh Glow Backgrounds */
+@keyframes float-slow-1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-slow-2 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-float-1 {
+  animation: float-slow-1 15s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-slow-2 20s ease-in-out infinite;
+}
+
+/* Button & Link Hover Indicator glow */
+.btn-glow-f1-red:hover {
+  box-shadow: 0 0 20px rgba(0, 195, 137, 0.5);
+  border-color: #00C389;
+}
+
+.btn-glow-f1-blue:hover {
+  box-shadow: 0 0 20px rgba(127, 255, 212, 0.5);
+  border-color: #7FFFD4;
+}
+
+/* Subtle CRT flickering */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 1; }
+  100% { opacity: 0.99; }
+}
+
+.scanlines {
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Severity Alerts */
+.alert-critical {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+body.light .alert-critical {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.alert-warning {
+  background-color: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.25);
+  color: #fde047;
+}
+body.light .alert-warning {
+  background-color: #fffbeb;
+  border-color: #fde047;
+  color: #b45309;
+}
+
+.alert-optimization {
+  background-color: rgba(0, 195, 137, 0.1);
+  border-color: rgba(0, 195, 137, 0.25);
+  color: #6ee7b7;
+}
+body.light .alert-optimization {
+  background-color: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #047857;
+}
+
+.alert-info {
+  background-color: rgba(127, 255, 212, 0.1);
+  border-color: rgba(127, 255, 212, 0.25);
+  color: #99f6e4;
+}
+body.light .alert-info {
+  background-color: #f0fdfa;
+  border-color: #99f6e4;
+  color: #0f766e;
+}
+
+

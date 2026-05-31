@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apexion AI - Narration Helper Deck</title>
+  <style>
+    body {
+      background-color: #0F1115;
+      color: #C9D1D9;
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0;
+      padding: 30px;
+    }
+    .deck-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(21, 25, 32, 0.85);
+      border: 1px solid rgba(201, 209, 217, 0.15);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.65);
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00C389;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 1px solid rgba(201, 209, 217, 0.15);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    .settings {
+      display: grid;
+      grid-template-cols: 1fr 1fr;
+      gap: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      font-size: 13px;
+    }
+    label {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: #888;
+      display: block;
+      margin-bottom: 5px;
+    }
+    select, input[type="range"] {
+      width: 100%;
+      background: #08080a;
+      border: 1px solid rgba(201, 209, 217, 0.15);
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .scene-card {
+      border: 1px solid rgba(201, 209, 217, 0.1);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+    .scene-card:hover {
+      border-color: rgba(0, 195, 137, 0.4);
+    }
+    .scene-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .scene-title {
+      font-weight: bold;
+      color: #7FFFD4;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .scene-time {
+      font-size: 11px;
+      color: #888;
+    }
+    .scene-visuals {
+      font-size: 12px;
+      background: rgba(0, 195, 137, 0.05);
+      border-left: 3px solid #00C389;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+    .scene-script {
+      font-size: 14px;
+      line-height: 1.6;
+      background: #08080a;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #1a1a24;
+      color: #eee;
+    }
+    button {
+      background: #00C389;
+      color: #0F1115;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #7FFFD4;
+      box-shadow: 0 0 15px rgba(127, 255, 212, 0.4);
+    }
+    .stop-btn {
+      background: #ef4444;
+      color: white;
+    }
+    .stop-btn:hover {
+      background: #b91c1c;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+    #countdown-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 17, 21, 0.9);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      font-size: 120px;
+      font-weight: 900;
+      color: #7FFFD4;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown-overlay">3</div>
+
+  <div class="deck-container">
+    <h1>Apexion AI - Narration Helper Deck</h1>
+    <p style="font-size: 13px; color: #888; margin-bottom: 20px;">
+      Use this dashboard to narrate your demo video. Select a premium system voice, hit "Speak Scene", switch to the Apexion tab, and record your screen while the voice reads the script!
+    </p>
+
+    <div class="settings">
+      <div>
+        <label for="voice-select">Voice Select</label>
+        <select id="voice-select">
+          <option>Loading system voices...</option>
+        </select>
+      </div>
+      <div>
+        <label for="speed-slider">Speed / Rate</label>
+        <input type="range" id="speed-slider" min="0.5" max="1.5" step="0.05" value="0.95">
+      </div>
+      <div>
+        <label for="pitch-slider">Pitch / Tone</label>
+        <input type="range" id="pitch-slider" min="0.5" max="1.5" step="0.05" value="1.0">
+      </div>
+      <div style="display: flex; align-items: flex-end; justify-content: flex-end;">
+        <button id="stop-all-btn" class="stop-btn" onclick="stopSpeaking()">Stop Speaking</button>
+      </div>
+    </div>
+
+    <!-- Scene 1 -->
+    <div class="scene-card">
+      <div class="scene-header">
+        <div class="scene-title">Scene 1: Introduction</div>
+        <div class="scene-time">0:00 – 0:30</div>
+      </div>
+      <div class="scene-visuals">
+        <strong>Visual Action:</strong> Hover mouse over cards on the Home Page, then click <strong>"Access Telemetry Deck"</strong>.
+      </div>
+      <div class="scene-script" id="script-1">
+        Welcome to Apexion AI, an explainable AI Pit-Wall Decision Support system designed for motorsport engineers. Powered by IBM Granite and advanced RAG pipelines, Apexion AI parses real-time physics data, simulates tire degradation curves, and references complex FIA Sporting Directives to deliver explainable, regulation-grounded race decisions.
+      </div>
+      <div style="margin-top: 12px;">
+        <button onclick="speakScene(1)">Speak Scene 1</button>
+      </div>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="scene-card">
+      <div class="scene-header">
+        <div class="scene-title">Scene 2: Live Telemetry & F1 Simulator</div>
+        <div class="scene-time">0:30 – 1:15</div>
+      </div>
+      <div class="scene-visuals">
+        <strong>Visual Action:</strong> Go to Dashboard, load "British GP 2020", play at 5x. Scroll to wear alert. Open "Cinematic Simulator" and drive around.
+      </div>
+      <div class="scene-script" id="script-2">
+        On our Live Telemetry Dashboard, we can replay historical sessions like Hamilton's dramatic 2020 Silverstone tyre puncture. By speeding playback to 5x, we see real-time wear curves spike, triggering immediate structural alerts. We can also spin up a live interactive cinematic simulator. The client feeds controls directly into a canvas-based driving physics engine, streaming vehicle coordinates and pedal inputs back to our telemetry charts at 10Hz.
+      </div>
+      <div style="margin-top: 12px;">
+        <button onclick="speakScene(2)">Speak Scene 2</button>
+      </div>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="scene-card">
+      <div class="scene-header">
+        <div class="scene-title">Scene 3: Strategy Time Machine</div>
+        <div class="scene-time">1:15 – 2:00</div>
+      </div>
+      <div class="scene-visuals">
+        <strong>Visual Action:</strong> Open Simulator page. Click tire compounds, slide temperature to 50 degrees, and add a pitstop at Lap 20. Point out the AI insights below.
+      </div>
+      <div class="scene-script" id="script-3">
+        Next is the Strategy Time Machine, our real-time strategy forecaster. Every configuration change—from swapping starting tires to shifting track temperatures—automatically recalculates our race physics model. By planning a pitstop on lap 20, the simulation immediately updates, factoring in fuel weight burn-off and pit lane service losses. Recharts morphs the curves seamlessly. Our Explainable AI engine verifies the strategy, warning us if we have planned a regulation-violating zero-stop strategy or warning if wear exceeds critical limits.
+      </div>
+      <div style="margin-top: 12px;">
+        <button onclick="speakScene(3)">Speak Scene 3</button>
+      </div>
+    </div>
+
+    <!-- Scene 4 -->
+    <div class="scene-card">
+      <div class="scene-header">
+        <div class="scene-title">Scene 4: AI Race Engineer Copilot</div>
+        <div class="scene-time">2:00 – 2:45</div>
+      </div>
+      <div class="scene-visuals">
+        <strong>Visual Action:</strong> Open Copilot page. Turn on voice mode, check voice settings, click prompt chip "Should we box?", expand AI reasoning list, and show RAG references.
+      </div>
+      <div class="scene-script" id="script-4">
+        Our AI Copilot puts WatsonX reasoning directly in the headset. For auditory accessibility, we've integrated voice controls tailored for hearing aid users, allowing tone pitch lowering to bypass high-frequency hearing loss and speech slowing for better comprehension. Let's ask if we should box. The copilot responds instantly, reading the advice clearly while breaking down its logical thoughts step-by-step and grounding its decisions with citations from the sporting regulations.
+      </div>
+      <div style="margin-top: 12px;">
+        <button onclick="speakScene(4)">Speak Scene 4</button>
+      </div>
+    </div>
+
+    <!-- Scene 5 -->
+    <div class="scene-card">
+      <div class="scene-header">
+        <div class="scene-title">Scene 5: Outro & Regulations Database</div>
+        <div class="scene-time">2:45 – 3:00</div>
+      </div>
+      <div class="scene-visuals">
+        <strong>Visual Action:</strong> Open Regulations Database page. Search for "safety car" to display RAG results. Focus on the final slide view.
+      </div>
+      <div class="scene-script" id="script-5">
+        Finally, we can query our semantic index directly in the Regulations Database, which parses official sporting directives using Docling. Apexion AI combines real-time hardware telemetry, physics simulation, and regulations grounding to bring state-of-the-art pit-wall intelligence directly to drivers. Thank you.
+      </div>
+      <div style="margin-top: 12px;">
+        <button onclick="speakScene(5)">Speak Scene 5</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let voices = [];
+    const voiceSelect = document.getElementById('voice-select');
+
+    function populateVoices() {
+      if (typeof speechSynthesis === 'undefined') return;
+      
+      voices = speechSynthesis.getVoices();
+      voiceSelect.innerHTML = '';
+      
+      voices.forEach((voice, i) => {
+        const option = document.createElement('option');
+        option.textContent = `${voice.name} (${voice.lang})`;
+        option.value = i;
+        if (voice.default || voice.name.includes("Google") || voice.name.includes("Natural") || voice.name.includes("Zira") || voice.name.includes("David")) {
+          option.selected = true;
+        }
+        voiceSelect.appendChild(option);
+      });
+    }
+
+    populateVoices();
+    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = populateVoices;
+    }
+
+    function stopSpeaking() {
+      speechSynthesis.cancel();
+    }
+
+    function speakScene(sceneNum) {
+      stopSpeaking();
+
+      const overlay = document.getElementById('countdown-overlay');
+      overlay.style.display = 'flex';
+      
+      let count = 3;
+      overlay.innerText = count;
+
+      let timer = setInterval(() => {
+        count--;
+        if (count > 0) {
+          overlay.innerText = count;
+        } else if (count === 0) {
+          overlay.innerText = "ACTION!";
+          overlay.style.color = "#00C389";
+        } else {
+          clearInterval(timer);
+          overlay.style.display = 'none';
+          overlay.style.color = "#7FFFD4";
+          executeSpeech(sceneNum);
+        }
+      }, 1000);
+    }
+
+    function executeSpeech(sceneNum) {
+      const scriptText = document.getElementById(`script-${sceneNum}`).innerText.trim();
+      const u = new SpeechSynthesisUtterance(scriptText);
+      
+      const selectedVoiceIdx = voiceSelect.value;
+      if (voices[selectedVoiceIdx]) {
+        u.voice = voices[selectedVoiceIdx];
+      }
+
+      u.rate = parseFloat(document.getElementById('speed-slider').value);
+      u.pitch = parseFloat(document.getElementById('pitch-slider').value);
+
+      speechSynthesis.speak(u);
+    }
+  </script>
+</body>
+</html>

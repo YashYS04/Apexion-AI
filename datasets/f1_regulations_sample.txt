@@ -1,0 +1,38 @@
+=== FIA FORMULA ONE SPORTING REGULATIONS - EXCERPTS FOR APEXION AI ===
+
+ARTICLE 24: TYRES AND WHEELS
+24.1 tyre Compounds:
+    a) Pirelli will provide three dry-weather compounds for each Competition: Hard (White banding), Medium (Yellow banding), and Soft (Red banding).
+    b) Each driver is allocated 13 sets of dry-weather tyres, 4 sets of intermediate tyres, and 3 sets of wet-weather tyres for each race weekend.
+24.2 Compulsory Compound Usage during the Race:
+    a) Unless wet-weather conditions are declared by the Race Director (in which case wet or intermediate tyres must be used), each driver must use at least two different specifications/compounds of dry-weather tyres during the race.
+    b) At least one of these two compulsory sets must be a set of the mandatory race tyres designated by Pirelli (usually the Hard or Medium compound).
+    c) Failure to comply with this requirement will result in exclusion from the race results or a post-race 30-second time penalty.
+24.3 Tyre Degradation and Safety:
+    a) Operating a tyre beyond its structural degradation limit (typically defined when tread depth is less than 1.0mm or wear exceeds 90%) poses a catastrophic risk of tyre delamination or puncture.
+    b) In the event of high thermal degradation (overheating), tyre compound temperature exceeding 135°C (surface) or 115°C (carcass) will lead to severe loss of friction coefficient and accelerated wear rate.
+
+ARTICLE 34: PIT ENTRY, PIT LANE, AND PIT EXIT
+34.1 Speed Limit:
+    a) A speed limit of 80km/h will be enforced in the pit lane during the entire Event. Under specific tight tracks (e.g., Monaco, Singapore), this limit may be reduced to 60km/h by the Race Director.
+    b) Exceeding this limit during the race will incur a 5-second or 10-second time penalty, or a drive-through penalty.
+34.2 Pit Stop Delta Time:
+    a) The total pit lane transit time (the time lost entering, slowing down, stopping, and exiting) is known as the "pit lane delta".
+    b) At Silverstone, the pit lane delta is approximately 20.5 seconds under green flag conditions. At Monaco, it is approximately 25.0 seconds. At Spa-Francorchamps, it is approximately 22.0 seconds.
+    c) Under Virtual Safety Car (VSC) or Safety Car (SC) conditions, the pit lane delta is significantly reduced relative to cars on track (often by 10-12 seconds) due to the reduced speed limit enforced on the main track, making pit stops under VSC/SC highly advantageous (the "cheap pit stop" effect).
+
+ARTICLE 55: SAFETY CAR AND VIRTUAL SAFETY CAR (VSC)
+55.1 Safety Car Procedure:
+    a) When the Safety Car is deployed, all competing cars must reduce speed and line up behind it.
+    b) No car may overtake another car on track, except under specific circumstances (e.g., a car slowing with an obvious problem).
+    c) Lapped cars may be permitted to unlap themselves if the Race Director deems it safe.
+55.2 Virtual Safety Car (VSC):
+    a) The VSC may be deployed when double waved yellow flags are needed, but the hazard does not warrant the Safety Car itself.
+    b) When VSC is deployed, drivers must reduce speed and stay above the minimum sector time (delta time) set by the FIA telemetry system.
+    c) Pit stops are permitted under VSC. Since cars on the main track are restricted to a slow target delta, pit stops under VSC save substantial race position time. The effective time loss is reduced by approximately 45%.
+
+ARTICLE 12: WET WEATHER CONDITIONS
+12.1 Wet Track Declarations:
+    a) If it starts to rain, the Race Director may declare a "Wet Track".
+    b) Once a Wet Track is declared, the DRS (Drag Reduction System) is disabled, and drivers are permitted to use intermediate or wet tyres without needing to run two different dry-weather compounds.
+    c) Intermediate tyres (Green) are optimal for damp tracks with no standing water. Full wet tyres (Blue) are designed for heavy rain and standing water to prevent aquaplaning.

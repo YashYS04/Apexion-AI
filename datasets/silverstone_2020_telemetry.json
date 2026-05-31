@@ -1,0 +1,48 @@
+{
+  "session": {
+    "race_name": "British Grand Prix 2020",
+    "track": "Silverstone Circuit",
+    "total_laps": 52,
+    "weather": "Dry and Sunny",
+    "ambient_temp": 22.0,
+    "track_temp": 38.5,
+    "winning_strategy": "Medium -> Hard (1-stop)",
+    "historical_context": "Hamilton led easily on a 1-stop strategy, but extreme tyre wear caused sudden tyre delaminations in the final laps. Bottas (P2) suffered a front-left puncture on Lap 50. Sainz suffered one on Lap 51. Hamilton suffered a front-left puncture on Lap 52 with half a lap remaining, limping across the finish line with Verstappen chasing him down."
+  },
+  "lap_history": [
+    {"lap": 1, "driver": "HAM", "position": 1, "lap_time": 93.20, "s1": 28.5, "s2": 37.1, "s3": 27.60, "tyre": "Medium", "tyre_age": 1, "tyre_wear": 1.5, "fuel_left": 105.0, "drs_enabled": false},
+    {"lap": 10, "driver": "HAM", "position": 1, "lap_time": 90.80, "s1": 27.8, "s2": 36.2, "s3": 26.80, "tyre": "Medium", "tyre_age": 10, "tyre_wear": 18.0, "fuel_left": 86.8, "drs_enabled": false},
+    {"lap": 13, "driver": "HAM", "position": 1, "lap_time": 115.40, "s1": 27.8, "s2": 52.1, "s3": 35.50, "tyre": "Hard", "tyre_age": 1, "tyre_wear": 0.5, "fuel_left": 81.2, "drs_enabled": false, "event": "Safety Car Pitstop for Hard tyres"},
+    {"lap": 20, "driver": "HAM", "position": 1, "lap_time": 89.90, "s1": 27.4, "s2": 35.8, "s3": 26.70, "tyre": "Hard", "tyre_age": 8, "tyre_wear": 15.0, "fuel_left": 69.5, "drs_enabled": false},
+    {"lap": 30, "driver": "HAM", "position": 1, "lap_time": 89.10, "s1": 27.1, "s2": 35.4, "s3": 26.60, "tyre": "Hard", "tyre_age": 18, "tyre_wear": 38.0, "fuel_left": 50.8, "drs_enabled": false},
+    {"lap": 40, "driver": "HAM", "position": 1, "lap_time": 88.30, "s1": 26.9, "s2": 35.0, "s3": 26.40, "tyre": "Hard", "tyre_age": 28, "tyre_wear": 60.5, "fuel_left": 32.1, "drs_enabled": false},
+    {"lap": 48, "driver": "HAM", "position": 1, "lap_time": 88.05, "s1": 26.8, "s2": 34.9, "s3": 26.35, "tyre": "Hard", "tyre_age": 36, "tyre_wear": 82.0, "fuel_left": 17.5, "drs_enabled": false},
+    {"lap": 49, "driver": "HAM", "position": 1, "lap_time": 88.10, "s1": 26.8, "s2": 35.0, "s3": 26.30, "tyre": "Hard", "tyre_age": 37, "tyre_wear": 85.0, "fuel_left": 15.6, "drs_enabled": false, "event": "Warning: High vibration front-left sensor"},
+    {"lap": 50, "driver": "HAM", "position": 1, "lap_time": 88.60, "s1": 27.0, "s2": 35.1, "s3": 26.50, "tyre": "Hard", "tyre_age": 38, "tyre_wear": 89.0, "fuel_left": 13.8, "drs_enabled": false, "event": "Bottas Front-Left tyre Punctures behind!"},
+    {"lap": 51, "driver": "HAM", "position": 1, "lap_time": 89.20, "s1": 27.1, "s2": 35.4, "s3": 26.70, "tyre": "Hard", "tyre_age": 39, "tyre_wear": 93.0, "fuel_left": 11.9, "drs_enabled": false},
+    {"lap": 52, "driver": "HAM", "position": 1, "lap_time": 118.50, "s1": 27.2, "s2": 45.8, "s3": 45.50, "tyre": "Hard", "tyre_age": 40, "tyre_wear": 100.0, "fuel_left": 10.1, "drs_enabled": false, "event": "Hamilton Front-Left tyre Punctures on final lap!"}
+  ],
+  "telemetry_replay": [
+    {"time": 0, "lap": 52, "speed": 280, "throttle": 100, "brake": 0, "rpm": 12200, "gear": 7, "drs": false, "tyre_wear": [94.1, 88.2, 85.0, 84.2], "tyre_temp": [128, 115, 110, 108], "fuel": 11.8, "engine_temp": 101, "brake_temp": 420, "distance": 4500, "event": "Lap 52 Start - Straight line speed nominal"},
+    {"time": 1, "lap": 52, "speed": 290, "throttle": 100, "brake": 0, "rpm": 12500, "gear": 7, "drs": false, "tyre_wear": [94.2, 88.2, 85.0, 84.2], "tyre_temp": [129, 115, 110, 108], "fuel": 11.7, "engine_temp": 101, "brake_temp": 400, "distance": 4580},
+    {"time": 2, "lap": 52, "speed": 305, "throttle": 100, "brake": 0, "rpm": 12900, "gear": 8, "drs": false, "tyre_wear": [94.5, 88.3, 85.1, 84.3], "tyre_temp": [131, 116, 111, 109], "fuel": 11.7, "engine_temp": 101, "brake_temp": 380, "distance": 4665, "event": "Entering Wellington Straight"},
+    {"time": 3, "lap": 52, "speed": 315, "throttle": 100, "brake": 0, "rpm": 13200, "gear": 8, "drs": false, "tyre_wear": [95.0, 88.4, 85.2, 84.3], "tyre_temp": [133, 117, 111, 109], "fuel": 11.6, "engine_temp": 101, "brake_temp": 360, "distance": 4752},
+    {"time": 4, "lap": 52, "speed": 320, "throttle": 100, "brake": 0, "rpm": 13400, "gear": 8, "drs": false, "tyre_wear": [96.0, 88.5, 85.3, 84.4], "tyre_temp": [135, 117, 112, 110], "fuel": 11.5, "engine_temp": 101, "brake_temp": 340, "distance": 4841, "event": "CRITICAL: Front-left tyre pressure dropping rapidly!"},
+    {"time": 5, "lap": 52, "speed": 260, "throttle": 0, "brake": 50, "rpm": 11000, "gear": 6, "drs": false, "tyre_wear": [100.0, 88.6, 85.4, 84.5], "tyre_temp": [140, 110, 109, 108], "fuel": 11.5, "engine_temp": 102, "brake_temp": 490, "distance": 4913, "event": "TYRE DELAMINATION - Front-left tyre punctured!"},
+    {"time": 6, "lap": 52, "speed": 180, "throttle": 20, "brake": 30, "rpm": 8200, "gear": 4, "drs": false, "tyre_wear": [100.0, 88.6, 85.4, 84.5], "tyre_temp": [145, 105, 106, 105], "fuel": 11.4, "engine_temp": 104, "brake_temp": 500, "distance": 4963, "event": "Car vibrating heavily, driver struggling for control"},
+    {"time": 7, "lap": 52, "speed": 140, "throttle": 30, "brake": 0, "rpm": 7100, "gear": 3, "drs": false, "tyre_wear": [100.0, 88.7, 85.5, 84.6], "tyre_temp": [150, 102, 104, 103], "fuel": 11.4, "engine_temp": 106, "brake_temp": 480, "distance": 5002},
+    {"time": 8, "lap": 52, "speed": 110, "throttle": 40, "brake": 0, "rpm": 6200, "gear": 2, "drs": false, "tyre_wear": [100.0, 88.8, 85.6, 84.7], "tyre_temp": [152, 99, 102, 101], "fuel": 11.3, "engine_temp": 108, "brake_temp": 450, "distance": 5032},
+    {"time": 9, "lap": 52, "speed": 95, "throttle": 30, "brake": 10, "rpm": 5800, "gear": 2, "drs": false, "tyre_wear": [100.0, 88.9, 85.7, 84.8], "tyre_temp": [155, 96, 100, 99], "fuel": 11.3, "engine_temp": 110, "brake_temp": 440, "distance": 5058, "event": "Entering Luffield Corner"},
+    {"time": 10, "lap": 52, "speed": 85, "throttle": 25, "brake": 5, "rpm": 5500, "gear": 2, "drs": false, "tyre_wear": [100.0, 89.0, 85.8, 84.9], "tyre_temp": [157, 94, 98, 97], "fuel": 11.2, "engine_temp": 112, "brake_temp": 430, "distance": 5082},
+    {"time": 11, "lap": 52, "speed": 90, "throttle": 40, "brake": 0, "rpm": 5600, "gear": 2, "drs": false, "tyre_wear": [100.0, 89.1, 85.9, 85.0], "tyre_temp": [159, 93, 97, 96], "fuel": 11.2, "engine_temp": 113, "brake_temp": 410, "distance": 5107, "event": "Verstappen gap reducing by 5s per sector!"},
+    {"time": 12, "lap": 52, "speed": 110, "throttle": 55, "brake": 0, "rpm": 6400, "gear": 3, "drs": false, "tyre_wear": [100.0, 89.2, 86.0, 85.1], "tyre_temp": [160, 92, 96, 95], "fuel": 11.1, "engine_temp": 114, "brake_temp": 395, "distance": 5137},
+    {"time": 13, "lap": 52, "speed": 125, "throttle": 70, "brake": 0, "rpm": 7200, "gear": 3, "drs": false, "tyre_wear": [100.0, 89.3, 86.1, 85.2], "tyre_temp": [160, 92, 96, 95], "fuel": 11.1, "engine_temp": 113, "brake_temp": 380, "distance": 5172, "event": "Limping down National Pit Straight"},
+    {"time": 14, "lap": 52, "speed": 135, "throttle": 80, "brake": 0, "rpm": 7800, "gear": 3, "drs": false, "tyre_wear": [100.0, 89.4, 86.2, 85.3], "tyre_temp": [160, 91, 95, 94], "fuel": 11.0, "engine_temp": 112, "brake_temp": 370, "distance": 5210},
+    {"time": 15, "lap": 52, "speed": 145, "throttle": 90, "brake": 0, "rpm": 8200, "gear": 4, "drs": false, "tyre_wear": [100.0, 89.5, 86.3, 85.4], "tyre_temp": [160, 91, 95, 94], "fuel": 11.0, "engine_temp": 111, "brake_temp": 360, "distance": 5250},
+    {"time": 16, "lap": 52, "speed": 140, "throttle": 40, "brake": 20, "rpm": 7900, "gear": 3, "drs": false, "tyre_wear": [100.0, 89.6, 86.4, 85.5], "tyre_temp": [160, 91, 95, 94], "fuel": 10.9, "engine_temp": 111, "brake_temp": 380, "distance": 5289, "event": "Entering Copse Corner"},
+    {"time": 17, "lap": 52, "speed": 135, "throttle": 50, "brake": 0, "rpm": 7700, "gear": 3, "drs": false, "tyre_wear": [100.0, 89.7, 86.5, 85.6], "tyre_temp": [160, 91, 95, 94], "fuel": 10.9, "engine_temp": 111, "brake_temp": 375, "distance": 5326},
+    {"time": 18, "lap": 52, "speed": 145, "throttle": 80, "brake": 0, "rpm": 8100, "gear": 4, "drs": false, "tyre_wear": [100.0, 89.8, 86.6, 85.7], "tyre_temp": [160, 91, 95, 94], "fuel": 10.8, "engine_temp": 110, "brake_temp": 360, "distance": 5366},
+    {"time": 19, "lap": 52, "speed": 155, "throttle": 100, "brake": 0, "rpm": 8500, "gear": 4, "drs": false, "tyre_wear": [100.0, 89.9, 86.7, 85.8], "tyre_temp": [160, 91, 95, 94], "fuel": 10.8, "engine_temp": 109, "brake_temp": 350, "distance": 5409},
+    {"time": 20, "lap": 52, "speed": 160, "throttle": 100, "brake": 0, "rpm": 8800, "gear": 4, "drs": false, "tyre_wear": [100.0, 90.0, 86.8, 85.9], "tyre_temp": [160, 91, 95, 94], "fuel": 10.7, "engine_temp": 108, "brake_temp": 340, "distance": 5453, "event": "Hamilton crosses the line to WIN the British GP!"}
+  ]
+}

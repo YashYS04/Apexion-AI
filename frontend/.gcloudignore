@@ -1,0 +1,10 @@
+.gcloudignore
+.git
+.gitignore
+
+# Node dependencies and build folders
+node_modules/
+.next/
+out/
+build/
+tsconfig.tsbuildinfo
