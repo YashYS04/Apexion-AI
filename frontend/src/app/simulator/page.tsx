@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { getBackendUrl } from "../../components/config";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Play, 
@@ -88,7 +89,7 @@ export default function StrategySimulator() {
     };
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const backendUrl = getBackendUrl();
       const response = await fetch(`${backendUrl}/api/simulate?t=${Date.now()}`, {
         method: "POST",
         headers: {

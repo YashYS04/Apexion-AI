@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { getBackendUrl } from "../../components/config";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Bot, 
@@ -139,7 +140,7 @@ export default function AICopilot() {
     setLoading(true);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const backendUrl = getBackendUrl();
       const response = await fetch(`${backendUrl}/api/copilot/chat`, {
         method: "POST",
         headers: {

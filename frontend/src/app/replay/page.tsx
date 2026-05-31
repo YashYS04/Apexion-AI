@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { getBackendUrl } from "../../components/config";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Play, 
@@ -85,7 +86,7 @@ export default function RaceReplay() {
     setFrame(null);
     setIsPlaying(false);
 
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const backendUrl = getBackendUrl();
     const wsProtocol = backendUrl.startsWith("https") ? "wss" : "ws";
     const wsHost = backendUrl.replace(/^https?:\/\//, "");
     const wsUrl = `${wsProtocol}://${wsHost}/ws/telemetry`;

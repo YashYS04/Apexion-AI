@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { getBackendUrl } from "../../components/config";
 import { 
   Play, 
   Pause, 
@@ -40,7 +41,7 @@ export default function TelemetryDashboard() {
 
   // Load list of available sessions
   useEffect(() => {
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const backendUrl = getBackendUrl();
     fetch(`${backendUrl}/api/sessions`)
       .then(res => res.json())
       .then(data => setSessions(data))
@@ -69,7 +70,7 @@ export default function TelemetryDashboard() {
       wsRef.current.close();
     }
 
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const backendUrl = getBackendUrl();
     const wsProtocol = backendUrl.startsWith("https") ? "wss" : "ws";
     const wsHost = backendUrl.replace(/^https?:\/\//, "");
     const wsUrl = `${wsProtocol}://${wsHost}/ws/telemetry`;

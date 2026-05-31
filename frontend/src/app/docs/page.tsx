@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getBackendUrl } from "../../components/config";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   BookOpen, 
@@ -28,7 +29,7 @@ export default function Documentation() {
     setSearched(true);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const backendUrl = getBackendUrl();
       const response = await fetch(`${backendUrl}/api/rag/query`, {
         method: "POST",
         headers: {
