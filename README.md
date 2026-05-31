@@ -1,78 +1,117 @@
-# Apexion AI // Explainable AI Race Engineer
+# Apexion AI // Explainable AI F1 Pit-Wall Copilot & Strategy Simulator
 
-Apexion AI is a hackathon-winning, production-quality F1 pit-wall strategy optimizer and telemetry dashboard. It represents the ultimate decision support cockpit for motorsport strategy, helping drivers and pit crews decide when to pit, predict tyre failures, simulate alternate pit window lines, and cross-reference complex FIA regulations using an explainable AI engineer.
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![IBM Granite](https://img.shields.io/badge/IBM_Granite-WatsonX-blue?style=for-the-badge)](https://www.ibm.com/watsonx)
+[![Google Cloud Run](https://img.shields.io/badge/Google_Cloud_Run-Deployed-4285F4?style=for-the-badge&logo=googlecloud)](https://cloud.google.com/run)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
----
-
-## 1. Core Modules
-
-1. **AI Race Engineer Copilot (Chat)**
-   - Resolves F1 questions like "Should we box now?" or "Why are lap times dropping?".
-   - Connects to WatsonX IBM Granite or uses a fallback local rule engine to explain rationale.
-   - Dual UI presentation: **Engineering Mode** (tire degradation index, carcass temps, FIA article citations) vs **Fan Mode** (simplifies metrics using analogies).
-   
-2. **Live Telemetry Console**
-   - High-tech, F1-style dark deck streaming speed, RPM, throttle/brake pedal inputs, gearbox gears, and fuel load.
-   - Live 4-tire heatmaps rendering tyre wear bars, thermal states (cold/optimal/overheating), and issue warning indicators.
-   
-3. **Embedded F1 Racing Simulator**
-   - Pseudo-3D (Road Rash/Outrun style) canvas driving simulator with rear chase camera.
-   - Auto-drives dynamically or allows manual keyboard steering (W/A/S/D) to generate live telemetry.
-   - Feeds live dashboard charts, metrics, and backend AI analysis in real time.
-   
-4. **Strategy Time Machine (Simulator)**
-   - Interactive planner letting you design stint structures (e.g., start on Medium, pit on Lap 22 for Hards).
-   - Computes degradation rate, fuel weight curves, pit entry time loss, and outputs cumulative race delta vs baseline.
-   
-4. **Regulations RAG (Docling)**
-   - Processes FIA regulations.
-   - Grounding query interface returning chunks, source references, and confidence relevance scores.
-
-5. **Historical Race Replays**
-   - Preloaded logs of iconic Grand Prix moments:
-     * *Silverstone 2020:* Lewis Hamilton winning on 3 wheels after a front-left puncture on the final lap.
-     * *Monaco 2022:* Dynamic rain drying transitions causing pit stops strategy double-stack chaos.
+Apexion AI is an enterprise-grade, real-time decision support system designed for Formula 1 pit walls. Combining high-fidelity telemetry streaming, a physics-based strategy simulation engine, and explainable AI (XAI) reasoning grounded in official sporting regulations, Apexion AI bridges the gap between raw vehicle sensors and strategic trust.
 
 ---
 
-## 2. Tech Stack
+## 1. System Architecture
 
-- **Frontend:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion, Recharts.
-- **Backend:** FastAPI (Python), WebSockets (async live stream), Uvicorn.
-- **AI Core:** IBM Granite LLM models ("ibm/granite-13b-instruct-v2"), LangChain, LangFlow orchestrator.
-- **RAG Engine:** Docling PDF/Markdown parser, RegulationRAG (semantic keyword indexes).
+The following diagram illustrates the flow of real-time telemetry frames, RAG direct directives, and Explainable AI reasoning chains:
 
----
+```mermaid
+graph TD
+    subgraph Client [Client-Side UI Console]
+        UI[Next.js 15 Web Deck]
+        Sim[Pseudo-3D Physics Canvas]
+        Map[2D Live Track Position Map]
+    end
 
-## 3. Directory Layout
+    subgraph Service [API Services & Telemetry Engine]
+        WS[FastAPI WebSockets /ws/telemetry]
+        API[FastAPI REST Router]
+        Physics[Strategy Simulator Engine]
+    end
 
-```
-Apexion AI/
-├── frontend/             # Next.js 15 React web deck
-├── backend/              # FastAPI server (rest endpoints & WS stream)
-├── ai-engine/            # RAG parser and IBM Granite LangChain clients
-├── langflow/             # LangFlow orchestration graph JSON
-├── datasets/             # Regulation drafts and telemetry historical logs
-├── docs/                 # Systems design guides and formulas
-└── README.md             # Project documentation
+    subgraph Reasoning [Cognitive Reasoning Layer]
+        Agent[Race Engineer Agent]
+        RAG[Docling Regulations RAG]
+        LLM[IBM Granite WatsonX LLM]
+    end
+
+    UI <-->|WebSocket Stream 10Hz| WS
+    Sim -->|Telemetry Frames| UI
+    UI -->|Run Stint Payload| API
+    API -->|Execute Simulation| Physics
+    Agent <-->|Explainable Query| LLM
+    Agent <-->|Context Match| RAG
+    API -->|RAG Directives| Agent
 ```
 
 ---
 
-## 4. Setup & Installation
+## 2. Key Modules & Technical Capabilities
 
-### 4.1. Prerequisites
-- Python 3.10+
-- Node.js 18+
+### 2.1. Explainable AI (XAI) Race Copilot
+Leveraging **IBM Granite-13B-Instruct** models via WatsonX, the Copilot analyzes active telemetry profiles. Unlike standard "black-box" models, Apexion exposes the full cognitive trace graph detailing *why* it recommends specific stint actions. It features:
+* **Dual Presentation Decks:** **Engineering Mode** (carcass temperatures, degradation coefficients, official rules citations) vs. **Fan Mode** (contextualizes technical parameters using relatable real-world analogies).
+* **Voice Synthesis Radio Link:** Integrates walkie-talkie audio synthesis (Web Speech API) with customized tone pitch and rate configurations designed specifically to aid users with high-frequency hearing deficits.
 
-### 4.2. Running Backend Services
-1. Navigate to the backend directory:
+### 2.2. Interactive Strategy Time Machine
+A predictive modeling workspace for race strategists to test stint profiles. It calculates the dynamic impact of tire compound pairings, ambient weather presets, and track temperature gradients. It instantly calculates time-deltas against an optimal baseline 1-stop strategy and projects grid-position changes.
+
+### 2.3. Live Telemetry Console & 2D Track Map
+Streams real-time vehicle data (speed, engine RPM, throttle/brake pedal inputs, fuel load, and tire carcass temperatures) over WebSockets at 10Hz. Stretches coordinates onto a dynamic SVG path tracking the car's current corner sector location (e.g. *Copse*, *Tunnel*, *Stowe*) live.
+
+---
+
+## 3. The Strategy Simulation Physics Model
+
+Apexion AI uses a non-linear mathematical physics model to calculate tyre wear, lap times, and thermal degradation dynamically:
+
+### 3.1. Non-Linear Tyre Wear
+Tyre wear percentage ($W_L$) on lap $L$ is calculated as a function of the compound's base wear rate ($W_{base}$), track temperature modifier ($M_{temp}$), and weather slide coefficient ($C_{weather}$):
+
+$$W_L = \min\left(100, L \times W_{base} \times M_{temp} \times C_{weather}\right)$$
+
+Where the temperature modifier is centered around the optimal window of $30^\circ\text{C}$:
+
+$$M_{temp} = \max\left(0.6, \min\left(1.8, 1.0 + (T_{track} - 30.0) \times 0.015\right)\right)$$
+
+### 3.2. Degradation & Pace Calculation
+The final lap time ($T_{lap}$) incorporates baseline track time ($T_{base}$), tire compound offsets ($O_{compound}$), fuel load weight penalties ($P_{fuel} \times F_{load}$), wet-weather traction loss ($TL$), thermal operating penalties ($P_{thermal}$), and the exponential wear degradation penalty ($D_{wear}$):
+
+$$T_{lap} = T_{base} + O_{compound} + D_{wear} + (F_{load} \times P_{fuel}) + P_{thermal} + TL + T_{pit}$$
+
+Where the exponential wear penalty is triggered when tyre wear exceeds $35\%$:
+
+$$D_{wear} = \begin{cases} 0 & \text{if } W_L \le 35 \\ \frac{(W_L - 35)^\alpha \times K_{wear}}{10} & \text{if } W_L > 35 \end{cases}$$
+
+*(Here, $\alpha$ represents the wear exponent specific to the compound, and $K_{wear}$ represents the compound penalty factor).*
+
+---
+
+## 4. Grounding via Regulations RAG
+To ensure strategy recommendations are compliant with complex **FIA Sporting Regulations**, Apexion integrates a semantic search engine:
+* **Ingestion:** Parsed hundreds of pages of F1 regulations using **Docling** to extract clean markdown structures.
+* **Retrieval-Augmented Generation (RAG):** Grounded the LLM context. If a strategist plans a stint that violates F1 rules (e.g., failing to use two distinct dry compounds during a dry race, violating article 24.2), the AI immediately flags a warning complete with regulation article citations.
+
+---
+
+## 5. Development & Execution Guide
+
+### 5.1. Directory Structure
+```
+├── frontend/             # Next.js 15 Web Deck
+├── backend/              # FastAPI server (Uvicorn REST & WebSockets)
+├── ai-engine/            # RAG processor and WatsonX LLM agent
+├── datasets/             # Telemetry datasets & FIA Regulations
+├── docs/                 # Architecture guides and mathematical designs
+└── Dockerfile            # Container configs for Cloud Run
+```
+
+### 5.2. Running Backend Locally
+1. Navigate to the backend folder:
    ```bash
    cd backend
    ```
-2. Create and activate a Python virtual environment:
+2. Activate virtual environment:
    ```bash
-   python -m venv venv
    # Windows PowerShell:
    .\venv\Scripts\Activate.ps1
    # Linux/macOS:
@@ -82,65 +121,22 @@ Apexion AI/
    ```bash
    pip install -r requirements.txt
    ```
-4. Create a `.env` file in the `backend/` directory:
-   ```env
-   # (Optional) If provided, connects live to WatsonX/IBM Cloud:
-   IBM_GRANITE_API_KEY=your_ibm_api_key
-   WATSONX_PROJECT_ID=your_watsonx_project_id
-   ```
-5. Launch the FastAPI server:
+4. Start FastAPI server:
    ```bash
    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
    ```
 
-### 4.3. Running Frontend Web Console
-1. Navigate to the frontend directory:
+### 5.3. Running Frontend Locally
+1. Navigate to the frontend folder:
    ```bash
    cd ../frontend
    ```
-2. Install npm packages:
+2. Install dependencies:
    ```bash
    npm install
    ```
-3. Boot the Next.js dev server:
+3. Start dev server:
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 5. Hackathon Demo Walkthrough Flow
-
-Here is how to demonstrate Apexion AI to judges in a 3-minute pitch:
-
-1. **Dashboard Replay Sync:**
-   - Go to the **Live Telemetry** page.
-   - Select the **British GP 2020 (Silverstone)** session profile.
-   - Click **Stream Telemetry** (Play).
-   - Show the charts updating live. Fast forward to **Lap 52** (using 2x or 5x speed) and watch the *Front-Left tyre wear hit 100%* and trigger the **TYRE DELAMINATION** alert in the pit-wall ticker.
-   
-2. **F1 Cinematic Simulator Driving:**
-   - On the same **Live Telemetry** dashboard, click **Launch Simulator**.
-   - Watch the pseudo-3D F1 arcade game drop down and begin driving itself automatically (Autopilot mode).
-   - Point out that the speedometers, input meters (throttle/brake), and Recharts traces are updating in real time using the game's physics!
-   - Toggle **Manual Mode** and drive using `W/A/S/D` to generate custom telemetry curves.
-   
-3. **Strategy Simulation (Time Machine):**
-   - Go to the **Strategy Simulator** page.
-   - Select **Silverstone Circuit**. Set starting tyre to **Medium**.
-   - Add a planned pitstop on **Lap 20** for **Hard** tyres. Click **Run Physics Simulation**.
-   - Review the projected position gains, tyre wear charts, and explainable insights.
-   
-4. **AI Copilot (Live Sim Analysis):**
-   - Keep the simulator running, and navigate to the **AI Race Copilot** page.
-   - Type *"Why are lap times increasing?"* or *"Should we pit now?"* and press Enter.
-   - The AI will read the live simulator's tyre wear and temps context, generate a step-by-step thinking trace, and recommend an action (e.g. *BOX BOX BOX*).
-   - Toggle to **Fan Deck** to see the explanation rewrite itself using analogies (comparing tyre wear to sliding on ice).
-
----
-
-## 6. Future Scope
-- **Voice AI Race Engineer:** Convert the chat system into a voice-to-voice link using WebRTC so drivers can talk directly over team radio.
-- **FastF1 Live API Ingest:** Direct sockets hookup to live timing streams during official FIA Grand Prix sessions.
-- **Predictive tyre blowout alerts:** Machine learning anomaly detectors running on suspension loads.
+4. Access the portal at [http://localhost:3000](http://localhost:3000).
