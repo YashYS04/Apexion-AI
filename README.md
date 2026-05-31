@@ -140,3 +140,53 @@ To ensure strategy recommendations are compliant with complex **FIA Sporting Reg
    npm run dev
    ```
 4. Access the portal at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## 6. Production Deployment & Deployed Endpoints
+
+Apexion AI is containerized and deployed as scalable microservices on **Google Cloud Run**:
+* **Frontend Web Deck:** [https://apexion-frontend-78199468351.us-central1.run.app/](https://apexion-frontend-78199468351.us-central1.run.app/)
+* **FastAPI Backend Core:** [https://apexion-backend-78199468351.us-central1.run.app/](https://apexion-backend-78199468351.us-central1.run.app/)
+
+*Note: Frontend builds are configured with `NEXT_PUBLIC_API_URL` environment variables pointing directly to the deployed backend container, enabling global WebSocket streams and cross-origin REST requests.*
+
+---
+
+## 7. Judge Demo Walkthrough Guide
+
+To evaluate the full features of Apexion AI in 3 minutes, follow this sequence:
+
+1. **Replay Historical Telemetry (British GP 2020):**
+   - Navigate to the **Historical Replay** page. Select **British GP 2020 (Silverstone)**.
+   - Click **Play** and toggle speed to **5x**. Watch the Recharts traces and gauges stream live.
+   - Observe **Lap 52** (Hamilton's tire puncture) where the carcass wear hits 100%, triggering a warning and displaying the colored alert container in the pit-wall notes.
+
+2. **Drive the Interactive Simulator:**
+   - Go to the **Live Telemetry** dashboard, select the **F1 Cinematic Live Simulator**, and click **Launch Simulator**.
+   - Press **Play** and watch the pseudo-3D F1 arcade canvas drive on autopilot, streaming vehicle coordinates and tire state data to the Recharts panels at 10Hz.
+   - Toggle **Manual Mode** and tap `A/D` to steer the car manually.
+
+3. **Simulate a Custom Tyre Strategy:**
+   - Open the **Strategy Time Machine**. Swap the starting tire compounds to see the SVG graphs transition.
+   - Drag the track temperature slider to `50°C` and notice the physics engine accelerate wear rates.
+   - Add a planned pitstop on **Lap 20** to swap Mediums for Hards. Observe the AI Strategy engine update below, checking for regulatory compliance warnings.
+
+4. **Query the AI Copilot:**
+   - Open the **AI Copilot** page. Toggle the speaker icon to enable walkie-talkie voice assist.
+   - Select the prompt chip: *"Should we box?"* or type custom telemetry queries.
+   - Watch the copilot output its logical thoughts step-by-step in the **Reasoning Trace Graph**, citing relevant FIA articles.
+
+---
+
+## 8. Strategic Systems Roadmap
+
+* **Live API Ingest (FastF1):** Direct WebSockets integration with official FIA timing streams for live-race telemetry capture.
+* **Predictive Anomaly Detection:** Machine learning regression models trained on tyre vibration sensors to predict punctures 3 laps in advance.
+* **Low-Latency Audio Radio Channel:** Full duplex voice communication mimicking standard walkie-talkie driver-engineer radio protocols.
+
+---
+
+## 9. License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
